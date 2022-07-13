@@ -1,58 +1,56 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { CgProfile } from 'react-icons/cg';
 import { BiSearch } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
+import {GiHamburgerMenu } from 'react-icons/gi';
+import {FaTimes } from 'react-icons/fa';
 import { MdOutlineAccountBalanceWallet } from 'react-icons/md';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import openseaLogo from '../../Assets/opensea.png';
 
-const style = {
-    wrapper: `flex py-4 md:px-4 lg:px-12 justify-between items-center`,
-    logoContainer: `flex items-center justify-center w-[200px]`,
-    logoText: ` mx-[0.5rem] text-white font-semibold text-2xl`,
-    searchBar: `flex items-center lg:bg-[#363840] rounded-[0.5rem] lg:hover:bg-[#4c505c]`,
-    searchIcon: `text-[#8a939b] mx-3 text-3xl lg:text-2xl`,
-    searchInput: `h-[3rem] w-0 lg:w-[50rem] text-lg border-0 bg-transparent outline-none pr-2 duration-300 text-[#e6e8eb] placeholder:text-[#8a939b]`,
-    headerItems: ` flex items-center`,
-    headerItem: `text-white text-lg px-4 font-semibold text-[#c8cacd] hover:text-white`,
-    headerIcon: `text-[#8a939b] text-4xl px-6 hover:text-white`,
-}
 
-const Header = () => {
+function Header() {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const isClicked = () => {
+        setIsOpen(!isOpen);
+    }
+    const openStyle = isOpen ? `` : `hidden`;
+    const openContentStyle = isOpen ? `-translate-x-0` : `-translate-x-full`;
+    const closeStyle = isOpen ? `hidden` : ``;
     return (
-        <div className={style.wrapper}>
+        <div className='flex bg-[#04111d] justify-between items-center py-4 px-6 lg:px-12 h-24'>
             <Link href="/">
-                <a className={style.logoContainer}>
+                <a className='flex text-white items-center'>
                     <Image src={openseaLogo} height={50} width={50} />
-                    <div className={style.logoText}>Opensea</div>
+                    <p className='text-2xl mx-1 font-semibold'>Opensea</p>
                 </a>
             </Link>
-            <div className="flex justify-center items-center">
-            <div className={style.searchBar}>
-                <div className={style.searchIcon}>
-                    <AiOutlineSearch />
+            <div className='flex flex-col items-center lg:flex-row text-white'>
+                {/* <div className='flex items-center'>
+                    <BiSearch />
+                    <input placeholder='Search items, collections, and accounts...' />
+                </div> */}
+                <div className={`flex  flex-col duration-300 lg:flex-row absolute lg:static inset-0 lg:inset-auto	bg-[#04111d] lg:bg-transparent bg-opacity-95 z-50 mt-24 lg:mt-0 font-semibold overflow-hidden ${openContentStyle}`}>
+                <Link href=""><a onClick={isClicked} className=' my-2 hover:bg-white  hover:bg-opacity-5 lg:bg-transparent lg:hover:bg-opacity-0 rounded p-6 hover:mx-2 lg:hover:mx-0 lg:hover:opacity-50 duration-300 text-xl'> Explore </a></Link>
+                {/* <Link href=""><a className=' my-2 hover:bg-white  hover:bg-opacity-5 lg:bg-transparent lg:hover:bg-opacity-0 rounded p-6 hover:mx-2 lg:hover:mx-0 lg:hover:opacity-50 duration-300 text-xl'> Collections </a></Link> */}
+                <Link href=""><a onClick={isClicked} className=' my-2 hover:bg-white  hover:bg-opacity-5 lg:bg-transparent lg:hover:bg-opacity-0 rounded p-6 hover:mx-2 lg:hover:mx-0 lg:hover:opacity-50 duration-300 text-xl'> Stats </a></Link>
+                <Link href=""><a onClick={isClicked} className=' my-2 hover:bg-white  hover:bg-opacity-5 lg:bg-transparent lg:hover:bg-opacity-0 rounded p-6 hover:mx-2 lg:hover:mx-0 lg:hover:opacity-50 duration-300 text-xl'> Resources </a></Link>
+                <Link href=""><a onClick={isClicked} className=' my-2 hover:bg-white  hover:bg-opacity-5 lg:bg-transparent lg:hover:bg-opacity-0 rounded p-6 hover:mx-2 lg:hover:mx-0 lg:hover:opacity-50 duration-300 text-xl'> Create </a></Link>
+                <div className='flex my-2 absolute lg:static bottom-0 lg:bottom-auto lg:ml-12 justify-center items-center w-screen lg:w-auto'>
+                <Link href=""><a onClick={isClicked} className='text-4xl p-6 text-white hover:text-opacity-50 duration-300'><CgProfile /></a></Link>
+                <Link href=""><a onClick={isClicked} className='text-4xl p-6 text-white hover:text-opacity-50 duration-300'><MdOutlineAccountBalanceWallet /></a></Link>
                 </div>
-                <input className={style.searchInput} placeholder="Search items, collections, and accounts" />
-            </div>
-            <div className="hidden">
-            <div className={style.headerItems}>
-                <Link href=""><a className={style.headerItem}> Collections </a></Link>
-                <Link href=""><a className={style.headerItem}> Stats </a></Link>
-                <Link href=""><a className={style.headerItem}> Resources </a></Link>
-                <Link href=""><a className={style.headerItem}> Create </a></Link>
-            </div>
-            <div className={style.headerItems}>
-                <Link href=""><a className={style.headerIcon}><CgProfile /></a></Link>
-                <Link href=""><a className={style.headerIcon}><MdOutlineAccountBalanceWallet /></a></Link>
-            </div>
-            </div>
-                {/* <div className="flex"> */}
-                {/* <Link href=""><a className={style.headerIcon}><BiSearch /></a></Link> */}
-                <Link href=""><a className={style.headerIcon}><GiHamburgerMenu /></a></Link>
-                {/* </div> */}
                 </div>
+                {/* <p>Icon Kinks</p> */}
+                {/* Search icon and cross icon here */}
+                {/* <div onClick={isClicked}> onClick={isClicked} */}
+
+ 
+                <Link  href=""><a onClick={isClicked} className={`lg:hidden text-4xl p-6 text-white hover:text-opacity-50 duration-300 ${openStyle}`}><FaTimes /></a></Link>
+                <Link  href=""><a onClick={isClicked} className={`lg:hidden text-4xl p-6 text-white hover:text-opacity-50 duration-300 ${closeStyle}`}><GiHamburgerMenu /></a></Link>
+            
+            {/* </div> onClick={isClicked} */}
+            </div>
         </div>
     )
 }
