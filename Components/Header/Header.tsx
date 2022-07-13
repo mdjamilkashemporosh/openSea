@@ -15,7 +15,7 @@ function Header() {
         setIsOpen(!isOpen);
     }
     const openStyle = isOpen ? `` : `hidden`;
-    const openContentStyle = isOpen ? `-translate-x-0` : `-translate-x-full`;
+    const openContentStyle = isOpen ? `-translate-x-0` : `-translate-x-full lg:-translate-x-0`;
     const closeStyle = isOpen ? `hidden` : ``;
     return (
         <div className='flex bg-[#04111d] justify-between items-center py-4 px-6 lg:px-12 h-24'>
