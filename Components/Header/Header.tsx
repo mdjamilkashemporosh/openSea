@@ -32,22 +32,22 @@ function Header() {
     const openContentStyle = mobileMenu ? '-translate-x-0':'-translate-x-full 2xl:-translate-x-0';
     const timesIconStyle = mobileMenu ? 'hidden':'';
     const arrowIconStyle = mobileSearchInput ? '':'hidden';
-    const searchInputWrapper = mobileSearchInput ? 'absolute inset-0 lg:inset-auto h-24 lg:h-auto bg-gray-800':'';
+    const searchInputWrapper = mobileSearchInput ? 'absolute inset-0 2xl:inset-auto h-24 2xl:h-auto bg-gray-800':'';
     const searchInput = mobileSearchInput ? 'w-[85vw]':'w-0';
 
     const style = {
-        container: 'flex justify-between p-4 lg:p-0 h-24',
+        container: 'flex justify-between p-4 2xl:p-0 h-24',
         logoWrapper: 'flex text-white items-center',
         logoText: 'text-2xl mx-1 font-semibold',
         searchAndLinks: 'flex items-center text-white',
         searchInputWrapper: `flex items-center 2xl:p-6 2xl:static ${searchInputWrapper}`,
-        searchIcon: `rounded-l-md  px-6 2xl:h-14 flex items-center text-3xl lg:bg-white lg:bg-opacity-10 ${searchIconStyle}`,
+        searchIcon: `rounded-l-md  px-6 2xl:h-14 flex items-center text-3xl 2xl:bg-white 2xl:bg-opacity-10 ${searchIconStyle}`,
         timesIcon: `px-6  flex items-center text-3xl ${arrowIconStyle}`,
-        searchInput: `2xl:rounded-r-md text-lg outline-none pl-4 2xl:pl-0 2xl:w-[32rem] bg-transparent 2xl:bg-white 2xl:bg-opacity-10 2xl:px-4 h-14 ${searchInput}`,
-        quickLinksWrapper: `flex 2xl:ml-4 items-start 2xl:items-center  flex-col duration-300 lg:flex-row absolute lg:static inset-0 2xl:inset-auto bg-gray-800 2xl:bg-transparent z-50 mt-24 2xl:mt-0 font-semibold ${openContentStyle}`,
+        searchInput: `2xl:rounded-r-md text-2xl outline-none pl-4 2xl:pl-0 2xl:w-[32rem] bg-transparent 2xl:bg-white 2xl:bg-opacity-10 2xl:px-4 h-14 ${searchInput}`,
+        quickLinksWrapper: `flex 2xl:ml-4 items-start 2xl:items-center  flex-col duration-300 2xl:flex-row absolute 2xl:static inset-0 2xl:inset-auto bg-gray-800 2xl:bg-transparent z-50 mt-24 2xl:mt-0 font-semibold ${openContentStyle}`,
         iconLinks: 'text-4xl p-6 text-white hover:text-opacity-50 duration-300',
         quickLinks: 'my-2 2xl:my-0 p-6 hover:mx-2 2xl:hover:mx-0 2xl:hover:opacity-50 duration-300 text-xl',
-        quickIconLinksWrapper: 'flex my-2 absolute 2xl:static bottom-0 2xl:bottom-auto 2xl:ml-4 justify-center items-center w-screen lg:w-auto',
+        quickIconLinksWrapper: 'flex my-2 absolute 2xl:static bottom-0 2xl:bottom-auto 2xl:ml-4 justify-center items-center w-screen 2xl:w-auto',
     }
 
     return (
@@ -78,8 +78,8 @@ function Header() {
                         <Link href=""><a onClick={changeMobileMenuStatus} className={style.iconLinks}><MdOutlineAccountBalanceWallet /></a></Link>
                     </div>
                 </div>
-                <Link href=""><a onClick={changeMobileMenuStatus} className={`lg:hidden ${style.iconLinks} ${mobileMenuStyle}`}><FaTimes /></a></Link>
-                <Link href=""><a onClick={changeMobileMenuStatus} className={`lg:hidden ${style.iconLinks} ${timesIconStyle}`}><GiHamburgerMenu /></a></Link>
+                <Link href=""><a onClick={changeMobileMenuStatus} className={`2xl:hidden ${style.iconLinks} ${mobileMenuStyle}`}><FaTimes /></a></Link>
+                <Link href=""><a onClick={changeMobileMenuStatus} className={`2xl:hidden ${style.iconLinks} ${timesIconStyle}`}><GiHamburgerMenu /></a></Link>
             </div>
         </div>
     )
